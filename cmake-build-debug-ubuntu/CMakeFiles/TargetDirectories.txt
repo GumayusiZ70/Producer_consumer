@@ -1,0 +1,3 @@
+/tmp/tmp.NB4uwef9n1/producer_consumer_project/cmake-build-debug-ubuntu/CMakeFiles/producer_consumer_project.dir
+/tmp/tmp.NB4uwef9n1/producer_consumer_project/cmake-build-debug-ubuntu/CMakeFiles/edit_cache.dir
+/tmp/tmp.NB4uwef9n1/producer_consumer_project/cmake-build-debug-ubuntu/CMakeFiles/rebuild_cache.dir

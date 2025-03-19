@@ -1,0 +1,51 @@
+生产者-消费者问题：C++ 设计思路与框架结构
+你的项目采用 C++11 及以上，利用封装、继承、多态等思想，模块化实现生产者-消费者模型，使得后续功能扩展更加方便。在 Windows（VSCode）和 Ubuntu（Clion）上均可运行。
+
+📌 设计目标
+任务队列（TaskQueue）：共享的缓冲区，使用**互斥锁（mutex）和条件变量（condition_variable）**来同步访问，确保线程安全。
+生产者（Producer）：不断生成任务，放入任务队列，等待消费者处理。
+消费者（Consumer）：不断从任务队列取出任务进行消费。
+管理类（ProducerConsumerManager）：管理生产者和消费者的生命周期，协调启动和终止。
+📌 代码框架
+bash
+复制
+编辑
+📂 producer_consumer_project  # 项目根目录
+├── 📂 inc                     # 头文件（声明）
+│   ├── TaskQueue.h            # 任务队列类（生产者-消费者共享）
+│   ├── Producer.h             # 生产者类
+│   ├── Consumer.h             # 消费者类
+│   ├── ProducerConsumerManager.h  # 生产者-消费者管理类
+├── 📂 src                     # 源代码（实现）
+│   ├── TaskQueue.cpp          # 任务队列实现
+│   ├── Producer.cpp           # 生产者实现
+│   ├── Consumer.cpp           # 消费者实现
+│   ├── ProducerConsumerManager.cpp  # 管理类实现
+├── main.cpp                   # 入口函数
+├── CMakeLists.txt              # CMake 构建配置
+
+ 1. 任务队列（TaskQueue）
+作用：生产者往队列push任务，消费者从队列pop任务。
+使用 std::queue<int> 存储任务，std::mutex 确保线程安全。
+std::condition_variable 让生产者和消费者进行同步：
+生产者等待队列非满才能生产。
+消费者等待队列非空才能消费。
+
+ 2. 生产者（Producer）
+作用：在 run() 方法中不断生产任务，并调用 TaskQueue::push() 添加任务。
+使用 std::thread 运行，可创建多个生产者。
+
+3. 消费者（Consumer）
+作用：在 run() 方法中不断消费任务，并调用 TaskQueue::pop() 取出任务。
+使用 std::thread 运行，可创建多个消费者。
+
+4. 生产者-消费者管理类（ProducerConsumerManager）
+作用：负责创建多个生产者和消费者，并管理它们的生命周期（启动、停止）。
+使用 std::vector<std::unique_ptr<Producer>> 和 std::vector<std::unique_ptr<Consumer>> 来存储多个线程。
+
+📌 代码执行流程
+创建任务队列 TaskQueue，指定最大容量。
+创建 N 个生产者 M 个消费者，每个生产者线程不断 push 任务，每个消费者线程不断 pop 任务。
+管理类 ProducerConsumerManager 统一管理线程，并在指定时间后停止生产和消费。
+所有线程安全退出，程序终止。
+

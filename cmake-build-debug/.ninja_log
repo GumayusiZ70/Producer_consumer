@@ -1,0 +1,7 @@
+# ninja log v6
+15	593	7640593363270697	CMakeFiles/producer_consumer_project.dir/main.cpp.obj	80c31d04277d36ec
+24	540	7640593363354519	CMakeFiles/producer_consumer_project.dir/src/Consumer.cpp.obj	355a29ca27ed387b
+23	535	7640594126821137	CMakeFiles/producer_consumer_project.dir/src/TaskQueue.cpp.obj	50fcfd27f78a890a
+32	539	7640593363429922	CMakeFiles/producer_consumer_project.dir/src/Producer.cpp.obj	742bdc4fd11c3abc
+40	593	7640593363520121	CMakeFiles/producer_consumer_project.dir/src/ProducerConsumerManager.cpp.obj	22110df588080f44
+535	657	7640594131946042	producer_consumer_project.exe	8e619cd361b450b8

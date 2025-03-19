@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/producer_consumer_project.dir/main.cpp.o CMakeFiles/producer_consumer_project.dir/src/Consumer.cpp.o CMakeFiles/producer_consumer_project.dir/src/Producer.cpp.o CMakeFiles/producer_consumer_project.dir/src/ProducerConsumerManager.cpp.o CMakeFiles/producer_consumer_project.dir/src/TaskQueue.cpp.o -o producer_consumer_project 
